@@ -1,7 +1,7 @@
 # TODOリスト：Astro化＆Netlifyデプロイ
 
 - [ ] 1. Astroプロジェクトの初期化
-    - [ ] `npm create astro@latest` を実行し、既存ディレクトリを選択
+    - [x] `npm create astro@latest` を実行し、既存ディレクトリを選択
     - [ ] テンプレートは「Empty」または「Minimal」を選択
     - [ ] 依存パッケージをインストール
 
