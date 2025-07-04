@@ -66,8 +66,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    animation: none !important;
-    transition: none !important;
 }
 
 /* 基本設定 */
@@ -112,8 +110,9 @@ html {
 }
 
 .logo-img {
-    width: 40px;
-    height: 40px;
+    width: 64px;
+    height: 64px;
+    animation: logo-slideout-in 12s cubic-bezier(0.23, 1, 0.32, 1) 0.2s infinite both;
 }
 
 .logo-text {
@@ -314,7 +313,7 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 20px;
+    padding: 20px 10px;
     background: var(--color-white);
     border-radius: 15px;
     text-decoration: none;
@@ -325,6 +324,7 @@ section {
     overflow: hidden;
     animation: fadeInUp 0.6s ease-out;
     border: 1px solid var(--color-gray-light);
+    min-height: 120px;
 }
 
 .social-card::before {
@@ -576,6 +576,30 @@ section {
     }
 }
 
+@media (max-width: 600px) {
+  .hero-logo-img {
+    max-width: 90vw;
+    height: auto;
+    margin-bottom: 1.2em;
+  }
+  .hero-title {
+    font-size: 1.1rem;
+    word-break: break-word;
+    white-space: normal;
+    line-height: 1.3;
+    padding: 0 0.2em;
+  }
+  .hero-subtitle {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    padding: 0 0.5em;
+  }
+  .social-card {
+    padding: 12px 6px;
+    min-height: 80px;
+  }
+}
+
 /* アニメーション */
 @keyframes fadeInUp {
     from {
@@ -591,6 +615,30 @@ section {
 @keyframes float {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-10px); }
+}
+
+@keyframes logo-slideout-in {
+  0% { transform: translateX(0); }
+  10% { transform: translateX(-120%); }
+  60% { transform: translateX(-120%); }
+  70% { transform: translateX(0); }
+  90% { transform: translateX(0); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes logo-fadeup {
+  0% {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* フォーカス状態のアクセシビリティ */
@@ -619,4 +667,14 @@ section {
         box-shadow: none;
         border: 1px solid #ccc;
     }
+}
+
+.hero-logo-img {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 2em;
+  max-width: 100%;
+  height: auto;
+  opacity: 0;
+  animation: logo-fadeup 2.8s cubic-bezier(0.23, 1, 0.32, 1) 0.2s 1 forwards;
 }
