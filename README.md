@@ -11,12 +11,13 @@
 - **事業形態**: 小規模コーヒーロースター
 - **営業場所**: 東京都東村山市久米川町4-46-1（百才内）
 - **営業日**: 第一日曜・第三日曜
-- **技術スタック**: HTML5, CSS3, JavaScript
+- **技術スタック**: Astro, HTML, CSS (BIZ UDPGothic), JavaScript (最小限)
 
 ## 🚀 セットアップ
 
 ### 前提条件
-- モダンブラウザ（Chrome, Firefox, Safari, Edge）
+- Node.js（v18以上推奨）
+- npm
 - Git
 
 ### インストール手順
@@ -28,92 +29,73 @@ git clone https://github.com/midikanacoffee/midikanacoffee-LP.git
 # プロジェクトディレクトリに移動
 cd midikanacoffee-LP
 
-# ブラウザでindex.htmlを開く
-open index.html
+# 依存パッケージをインストール
+npm install
+
+# 開発サーバーを起動
+npm run dev
 ```
+
+ブラウザで `http://localhost:4321/` を開いてご覧ください。
 
 ## 📁 プロジェクト構造
 
 ```
 midikanacoffee-LP/
-├── index.html              # メインランディングページ
-├── style.css               # メインスタイルシート
-├── sozai/                  # アセットフォルダ
-│   └── ロゴスクエア_inchar_black_500x500_背景透明.png
-├── .gitignore             # Git除外設定
-└── README.md              # このファイル
+├── public/
+│   └── sozai/（ロゴ・画像素材）
+├── src/
+│   ├── pages/
+│   │   └── index.astro（メインページ）
+│   ├── styles/
+│   │   └── style.css（スタイル）
+├── package.json
+├── README.md
+└── ...
 ```
 
 ## 🎨 デザイン仕様
 
-### カラーパレット
-- **プライマリ**: #8B4513 (茶色)
-- **セカンダリ**: #F5F5DC (ベージュ)
-- **アクセント**: #DAA520 (ゴールド)
-- **テキスト**: #2F2F2F (ダークグレー)
-
-### フォント
-- **メインフォント**: Noto Sans JP (Google Fonts)
-- **ウェイト**: 300, 400, 500, 700
-
-### レスポンシブ対応
-- **モバイル**: 320px〜576px
-- **タブレット**: 576px〜992px
-- **デスクトップ**: 992px以上
+- **配色**：白と黒を基調としたモノクロデザイン
+- **フォント**：BIZ UDPGothic（Google Fonts）
+- **ボタン・リンク**：モノクロのグラデーションや影で表現
+- **アニメーション**：活字主体の静的な印象を重視しつつ、ロゴ等に一部アニメーションあり
+- **レスポンシブ対応**：スマホ・タブレット・PCで最適表示
 
 ## 📱 SNSリンク
 
 | プラットフォーム | URL | 用途 |
 |----------------|-----|------|
-| Instagram | [@midikanacoffee](https://www.instagram.com/midikanacoffee/) | コーヒー写真、日常投稿 |
-| X (Twitter) | [@midikanacoffee](https://x.com/midikanacoffee) | コーヒー豆情報、店舗情報 |
-| TikTok | [@midikanacoffee](https://www.tiktok.com/@midikanacoffee) | 焙煎動画、ショート動画 |
+| Instagram | [@midikanacoffee](https://www.instagram.com/midikanacoffee/) | 営業情報、お店の様子、日常の投稿 |
+| X (Twitter) | [@midikanacoffee](https://x.com/midikanacoffee) | 主に店主のつぶやき |
+| TikTok | [@midikanacoffee](https://www.tiktok.com/@midikanacoffee) | 店舗の様子や抽出動画、ショート動画など |
 | STORES | [オンラインショップ](https://midikanacoffee.stores.jp/) | 商品販売 |
-| NOTE | [記事](https://note.com/midikanacoffee) | コーヒー豆情報、レシピ |
-| Spotify | [プレイリスト](https://open.spotify.com/user/31cm44f45ws34orqbkywdusoo37m) | 営業日用音楽 |
-| LINE | [お問い合わせ](https://lin.ee/zCpXlzg) | 直接コミュニケーション |
+| NOTE | [記事](https://note.com/midikanacoffee) | 珈琲のマメ知識、季節に合わせた音楽の情報など |
+| Spotify | [プレイリスト](https://open.spotify.com/user/31cm44f45ws34orqbkywdusoo37m) | 店主の趣味中心のプレイリスト公開 |
+| LINE | [お問い合わせ](https://lin.ee/zCpXlzg) | 公式アカウント・ポイント・クーポンなど |
+| YouTube | [チャンネル](https://youtube.com/channel/UCX9C7fRTx47V2huECxsMu1Q?si=3rGRG2e838alVcWB) | 動画で店舗の様子やコーヒーの紹介 |
+| Threads | [@midikanacoffee](https://www.threads.com/@midikanacoffee) | 最新のお知らせや日常のつぶやき |
 
 ## 🛠️ 開発
 
 ### コーディング規約
-- **HTML**: セマンティックなマークアップ
+- **Astro**: コンポーネント分割、セマンティックなマークアップ
 - **CSS**: BEM記法、CSS変数活用
-- **JavaScript**: ES6+、モジュラー設計
+- **JavaScript**: 必要最小限
 
 ### ブラウザサポート
-- Chrome (最新版)
-- Firefox (最新版)
-- Safari (最新版)
-- Edge (最新版)
+- Chrome, Firefox, Safari, Edge（最新版）
 
 ### パフォーマンス要件
 - ページ読み込み時間: 3秒以内
-- Lighthouse スコア: 90点以上
 - モバイル最適化対応
-
-## 📈 今後の拡張予定
-
-### Phase 1 (短期)
-- [ ] Google Analytics 4実装
-- [ ] SEO最適化
-- [ ] パフォーマンス最適化
-
-### Phase 2 (中期)
-- [ ] ブログ機能追加
-- [ ] オンライン注文システム
-- [ ] 多言語対応
-
-### Phase 3 (長期)
-- [ ] PWA化
-- [ ] 管理画面追加
-- [ ] AIチャットボット
 
 ## 🤝 コントリビューション
 
 1. このリポジトリをフォーク
-2. 機能ブランチを作成 (`git checkout -b feature/amazing-feature`)
-3. 変更をコミット (`git commit -m 'Add amazing feature'`)
-4. ブランチにプッシュ (`git push origin feature/amazing-feature`)
+2. 機能ブランチを作成 (`git checkout -b feature/your-feature`)
+3. 変更をコミット (`git commit -m 'Add your feature'`)
+4. ブランチにプッシュ (`git push origin feature/your-feature`)
 5. プルリクエストを作成
 
 ## 📄 ライセンス
@@ -129,7 +111,7 @@ midikanacoffee-LP/
 
 ---
 
-**最終更新**: 2025年1月  
+**最終更新**: 2025年7月  
 **バージョン**: 1.0.0 
 
 ## デザインカスタマイズ履歴（2024年7月）
