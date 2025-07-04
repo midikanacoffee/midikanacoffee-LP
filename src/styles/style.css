@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&display=swap');
+
 /* CSS変数定義 */
 :root {
   /* プライマリカラー */
@@ -15,17 +17,17 @@
   --accent-orange: #FF8C00;
   
   /* テキストカラー */
-  --text-primary: #2F2F2F;
-  --text-secondary: #666666;
-  --text-light: #FFFFFF;
+  --text-primary: var(--color-black);
+  --text-secondary: var(--color-gray-dark);
+  --text-light: var(--color-white);
   
   /* 背景カラー */
-  --bg-primary: #FFFFFF;
-  --bg-secondary: #F8F8F8;
+  --bg-primary: var(--color-white);
+  --bg-secondary: var(--color-gray-light);
   --bg-gradient: linear-gradient(135deg, #8B4513 0%, #A0522D 50%, #CD853F 100%);
   
   /* フォント */
-  --font-family-primary: 'Noto Sans JP', sans-serif;
+  --font-family-primary: 'BIZ UDPGothic', 'Noto Sans JP', sans-serif;
   --font-weight-light: 300;
   --font-weight-regular: 400;
   --font-weight-medium: 500;
@@ -47,6 +49,16 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
+  
+  /* モノクロ配色 */
+  --color-black: #111;
+  --color-white: #fff;
+  --color-gray: #888;
+  --color-gray-light: #eee;
+  --color-gray-dark: #333;
+  --btn-gradient: linear-gradient(135deg, #fff 0%, #bbb 100%);
+  --btn-gradient-hover: linear-gradient(135deg, #eee 0%, #222 100%);
+  --btn-shadow: 0 2px 8px rgba(0,0,0,0.10);
 }
 
 /* リセットCSS */
@@ -54,6 +66,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    animation: none !important;
+    transition: none !important;
 }
 
 /* 基本設定 */
@@ -61,7 +75,7 @@ body {
     font-family: var(--font-family-primary);
     line-height: 1.6;
     color: var(--text-primary);
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-primary);
 }
 
 .container {
@@ -78,7 +92,7 @@ html {
 /* ヘッダーセクション */
 .header {
     background: var(--bg-primary);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: none;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -105,7 +119,8 @@ html {
 .logo-text {
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-bold);
-    color: var(--primary-brown);
+    color: var(--text-primary);
+    font-family: var(--font-family-primary);
 }
 
 .nav-list {
@@ -115,24 +130,26 @@ html {
 }
 
 .nav-link {
-    text-decoration: none;
+    text-decoration: underline 0.1em rgba(0,0,0,0.1);
+    text-underline-offset: 0.2em;
     color: var(--text-primary);
-    font-weight: var(--font-weight-medium);
-    transition: color 0.3s ease;
+    font-weight: var(--font-weight-bold);
+    transition: color 0.2s;
 }
 
 .nav-link:hover {
-    color: var(--primary-brown);
+    color: var(--color-gray);
 }
 
 /* ヒーローセクション */
 .hero {
-    background: var(--bg-gradient);
-    color: var(--text-light);
+    background: var(--bg-primary);
+    color: var(--text-primary);
     padding: 120px 0;
     text-align: center;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.04);
 }
 
 .hero::before {
@@ -156,8 +173,9 @@ html {
     font-size: var(--font-size-5xl);
     font-weight: var(--font-weight-bold);
     margin-bottom: 24px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    text-shadow: none;
     line-height: 1.2;
+    font-family: var(--font-family-primary);
 }
 
 .hero-subtitle {
@@ -167,6 +185,7 @@ html {
     max-width: 600px;
     margin: 0 auto 40px;
     line-height: 1.6;
+    color: var(--text-secondary);
 }
 
 .hero-cta {
@@ -182,40 +201,24 @@ html {
     align-items: center;
     justify-content: center;
     padding: 12px 24px;
-    border: none;
+    border: 1px solid var(--color-gray-dark);
     border-radius: 8px;
     font-family: var(--font-family-primary);
-    font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-bold);
     font-size: var(--font-size-base);
     text-decoration: none;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
     min-width: 160px;
-}
-
-.btn-primary {
-    background: var(--text-light);
-    color: var(--primary-brown);
-}
-
-.btn-secondary {
-    background: transparent;
-    color: var(--text-light);
-    border: 2px solid var(--text-light);
+    background: var(--btn-gradient);
+    color: var(--color-black);
+    box-shadow: var(--btn-shadow);
 }
 
 .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.btn-primary:hover {
-    background: var(--secondary-cream);
-}
-
-.btn-secondary:hover {
-    background: var(--text-light);
-    color: var(--primary-brown);
+    background: var(--btn-gradient-hover);
+    color: var(--color-white);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
 }
 
 /* メインコンテンツ */
@@ -231,9 +234,10 @@ section {
     font-size: var(--font-size-4xl);
     text-align: center;
     margin-bottom: 40px;
-    color: var(--primary-brown);
+    color: var(--text-primary);
     position: relative;
     font-weight: var(--font-weight-bold);
+    font-family: var(--font-family-primary);
 }
 
 .section-title::after {
@@ -311,15 +315,16 @@ section {
     flex-direction: column;
     align-items: center;
     padding: 40px 20px;
-    background: var(--bg-primary);
+    background: var(--color-white);
     border-radius: 15px;
     text-decoration: none;
-    color: var(--text-primary);
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    color: var(--color-black);
+    transition: box-shadow 0.2s, border 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     position: relative;
     overflow: hidden;
     animation: fadeInUp 0.6s ease-out;
+    border: 1px solid var(--color-gray-light);
 }
 
 .social-card::before {
@@ -338,14 +343,15 @@ section {
 }
 
 .social-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    border: 1px solid var(--color-gray-dark);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
 }
 
 .social-card i {
     font-size: 3rem;
     margin-bottom: 15px;
     transition: transform 0.3s ease;
+    color: var(--color-gray-dark) !important;
 }
 
 .social-card:hover i {
@@ -356,12 +362,12 @@ section {
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-medium);
     margin-bottom: 8px;
-    color: var(--text-primary);
+    color: var(--color-black);
 }
 
 .social-card p {
     font-size: var(--font-size-sm);
-    color: var(--text-secondary);
+    color: var(--color-gray-dark);
     text-align: center;
     line-height: 1.4;
 }
@@ -412,24 +418,26 @@ section {
     align-items: center;
     gap: 10px;
     padding: 15px 30px;
-    background: var(--primary-brown);
-    color: var(--text-light);
+    background: var(--btn-gradient);
+    color: var(--color-black);
     text-decoration: none;
     border-radius: 25px;
-    transition: all 0.3s ease;
-    font-weight: var(--font-weight-medium);
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    font-weight: var(--font-weight-bold);
+    box-shadow: var(--btn-shadow);
+    border: 1px solid var(--color-gray-dark);
 }
 
 .contact-link:hover {
-    background: var(--primary-brown-light);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+    background: var(--btn-gradient-hover);
+    color: var(--color-white);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
 }
 
 /* フッター */
 .footer {
-    background: var(--primary-brown);
-    color: var(--text-light);
+    background: var(--bg-primary);
+    color: var(--text-primary);
     padding: 40px 0;
     text-align: center;
     margin-top: 60px;
