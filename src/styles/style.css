@@ -195,29 +195,66 @@ html {
 }
 
 /* ボタンコンポーネント */
-.btn {
+.button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 12px 24px;
-    border: 1px solid var(--color-gray-dark);
     border-radius: 8px;
     font-family: var(--font-family-primary);
     font-weight: var(--font-weight-bold);
     font-size: var(--font-size-base);
     text-decoration: none;
     cursor: pointer;
-    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s, border-color 0.2s;
     min-width: 160px;
-    background: var(--btn-gradient);
-    color: var(--color-black);
     box-shadow: var(--btn-shadow);
 }
 
-.btn:hover {
+.primary-button {
+    background: var(--btn-gradient);
+    color: var(--color-black);
+    border: 1px solid var(--color-gray-dark);
+}
+
+.primary-button:hover {
     background: var(--btn-gradient-hover);
     color: var(--color-white);
     box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+}
+
+.secondary-button {
+    background: var(--color-white);
+    color: var(--color-black);
+    border: 1px solid var(--color-gray);
+}
+
+.secondary-button:hover {
+    background: var(--color-gray-light);
+    border-color: var(--color-black);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.hero-cta {
+    margin-top: 40px;
+}
+
+.access-cta {
+    margin-top: 40px;
+}
+
+.faq-link {
+    margin-top: 30px;
+}
+
+.faq-link p {
+    margin-bottom: 15px;
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+}
+
+.faq-link .button {
+    margin: 0 auto;
 }
 
 /* メインコンテンツ */
